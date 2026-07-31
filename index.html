@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OnlyCats | $OnlyCats on Solana</title>
+  <meta name="description" content="Cute cats. Viral memes. Infinite purrs. OnlyCats turns every whisker into legendary crypto-powered fun." />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cat: {
+              sky: '#4EC3FF',
+              electric: '#1AA8FF',
+              deep: '#2B6FD6',
+              fur: '#A8C4D8',
+              mist: '#D6E8F5',
+              blush: '#FF8FB3',
+              cream: '#FFF9FC',
+              ink: '#1A2B4A',
+            }
+          },
+          fontFamily: {
+            display: ['Fredoka', 'sans-serif'],
+            body: ['Nunito', 'sans-serif'],
+          },
+          animation: {
+            float: 'float 4s ease-in-out infinite',
+            'float-slow': 'float 6s ease-in-out infinite',
+            wiggle: 'wiggle 2.5s ease-in-out infinite',
+            'paw-bounce': 'pawBounce 1.8s ease-in-out infinite',
+            sparkle: 'sparkle 2s ease-in-out infinite',
+            'fade-up': 'fadeUp 0.8s ease-out both',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            wiggle: {
+              '0%, 100%': { transform: 'rotate(-3deg)' },
+              '50%': { transform: 'rotate(3deg)' },
+            },
+            pawBounce: {
+              '0%, 100%': { transform: 'translateY(0) scale(1)' },
+              '50%': { transform: 'translateY(-8px) scale(1.05)' },
+            },
+            sparkle: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(0.85)' },
+              '50%': { opacity: '1', transform: 'scale(1.15)' },
+            },
+            fadeUp: {
+              from: { opacity: '0', transform: 'translateY(24px)' },
+              to: { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #FFFFFF;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 10% 0%, rgba(78, 195, 255, 0.18), transparent 55%),
+        radial-gradient(ellipse 70% 45% at 90% 10%, rgba(168, 196, 216, 0.25), transparent 50%),
+        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255, 143, 179, 0.08), transparent 55%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234EC3FF' fill-opacity='0.06'%3E%3Cpath d='M30 18c-1.2 0-2.2.7-2.6 1.7-.5-1.5-1.9-2.5-3.5-2.5-2 0-3.7 1.7-3.7 3.7 0 3.2 3.6 5.5 6.2 8.1l3.6 3.6 3.6-3.6c2.6-2.6 6.2-4.9 6.2-8.1 0-2-1.7-3.7-3.7-3.7-1.6 0-3 1-3.5 2.5-.4-1-1.4-1.7-2.6-1.7z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .font-display { font-family: 'Fredoka', sans-serif; }
+    .bubble-text {
+      color: #1AA8FF;
+      text-shadow:
+        -2px -2px 0 #fff,
+         2px -2px 0 #fff,
+        -2px  2px 0 #fff,
+         2px  2px 0 #fff,
+         0 4px 12px rgba(26, 168, 255, 0.25);
+    }
+    .btn-glow {
+      box-shadow: 0 6px 0 #1A7FCC, 0 10px 24px rgba(26, 168, 255, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn-glow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #1A7FCC, 0 14px 28px rgba(26, 168, 255, 0.4);
+    }
+    .btn-glow:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #1A7FCC, 0 4px 12px rgba(26, 168, 255, 0.3);
+    }
+    .btn-outline {
+      box-shadow: 0 5px 0 #2B6FD6;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn-outline:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 #2B6FD6;
+    }
+    .btn-outline:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #2B6FD6;
+    }
+    .step-card {
+      background: linear-gradient(160deg, #FFFFFF 0%, #F0F8FF 100%);
+      border: 2.5px solid #A8C4D8;
+      box-shadow: 0 8px 0 rgba(168, 196, 216, 0.45);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 0 rgba(78, 195, 255, 0.35);
+      border-color: #4EC3FF;
+    }
+    .paw {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .paw::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: #1AA8FF;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cellipse cx='12' cy='16' rx='5' ry='4'/%3E%3Ccircle cx='6' cy='10' r='2.2'/%3E%3Ccircle cx='10' cy='7' r='2.2'/%3E%3Ccircle cx='14.5' cy='7' r='2.2'/%3E%3Ccircle cx='18' cy='10' r='2.2'/%3E%3C/svg%3E") center / contain no-repeat;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cellipse cx='12' cy='16' rx='5' ry='4'/%3E%3Ccircle cx='6' cy='10' r='2.2'/%3E%3Ccircle cx='10' cy='7' r='2.2'/%3E%3Ccircle cx='14.5' cy='7' r='2.2'/%3E%3Ccircle cx='18' cy='10' r='2.2'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+    .ca-box {
+      background: linear-gradient(135deg, #F0F8FF, #FFFFFF);
+      border: 2.5px dashed #4EC3FF;
+    }
+    .chart-frame {
+      border: 3px solid #A8C4D8;
+      box-shadow: 0 12px 0 rgba(168, 196, 216, 0.4);
+      background: #fff;
+    }
+    .nav-blur {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(168, 196, 216, 0.35);
+    }
+    .toast {
+      transform: translateY(120%);
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .spark {
+      color: #1AA8FF;
+      animation: sparkle 2s ease-in-out infinite;
+    }
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.35; transform: scale(0.8) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.2) rotate(15deg); }
+    }
+  </style>
+</head>
+<body class="text-cat-ink overflow-x-hidden">
+
+  <!-- Floating paws -->
+  <div class="paw animate-paw-bounce" style="top: 18%; left: 6%; animation-delay: 0s;"></div>
+  <div class="paw animate-paw-bounce" style="top: 42%; right: 8%; animation-delay: 0.6s; width: 22px; height: 22px;"></div>
+  <div class="paw animate-float" style="top: 68%; left: 12%; animation-delay: 1.2s; width: 20px; height: 20px;"></div>
+  <div class="paw animate-float-slow" style="top: 28%; right: 15%; animation-delay: 0.3s;"></div>
+
+  <!-- Nav -->
+  <nav class="nav-blur fixed top-0 inset-x-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2.5 group">
+        <img src="logo.png" alt="OnlyCats logo" class="w-10 h-10 sm:w-12 sm:h-12 object-contain group-hover:animate-wiggle" />
+        <span class="font-display text-xl sm:text-2xl font-bold text-cat-electric tracking-tight">OnlyCats</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 font-display font-semibold text-cat-deep">
+        <a href="#about" class="hover:text-cat-electric transition-colors">About</a>
+        <a href="#howtobuy" class="hover:text-cat-electric transition-colors">How to Buy</a>
+        <a href="#chart" class="hover:text-cat-electric transition-colors">Chart</a>
+      </div>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="https://t.me/OnlyCatsSol" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden ring-2 ring-cat-mist hover:ring-cat-sky hover:scale-110 transition-all" aria-label="Telegram">
+          <img src="tg.png" alt="Telegram" class="w-full h-full object-cover" />
+        </a>
+        <a href="https://x.com/OnlyCatsSol" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden ring-2 ring-cat-mist hover:ring-cat-sky hover:scale-110 transition-all bg-black" aria-label="X / Twitter">
+          <img src="x.png" alt="X" class="w-full h-full object-cover" />
+        </a>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex font-display font-bold text-white bg-cat-electric px-4 py-2 rounded-2xl text-sm btn-glow">
+          Buy Now
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="relative pt-20 sm:pt-24 min-h-[100svh] flex flex-col">
+      <div class="relative w-full flex-1 flex flex-col justify-end">
+        <div class="absolute inset-0 overflow-hidden">
+          <img
+            src="banner.png"
+            alt="OnlyCats banner"
+            class="w-full h-full object-cover object-center scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-white/30"></div>
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-6 pb-12 sm:pb-16 pt-32 sm:pt-40">
+          <div class="animate-fade-up max-w-2xl">
+            <div class="flex items-center gap-3 mb-4">
+              <img src="logo.png" alt="" class="w-16 h-16 sm:w-20 sm:h-20 object-contain animate-float drop-shadow-lg" />
+              <span class="font-display text-sm sm:text-base font-bold uppercase tracking-widest text-cat-deep/70 bg-white/80 px-3 py-1 rounded-full border-2 border-cat-mist">
+                $OnlyCats
+              </span>
+            </div>
+            <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold bubble-text leading-[0.95] mb-5">
+              OnlyCats
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl text-cat-ink/80 font-semibold max-w-xl leading-relaxed mb-8">
+              Cute cats. Viral memes. Infinite purrs. OnlyCats turns every whisker into legendary crypto-powered fun.
+            </p>
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+              <a
+                href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-display font-bold text-white bg-cat-electric px-7 py-3.5 rounded-2xl text-base sm:text-lg btn-glow inline-flex items-center gap-2"
+              >
+                Buy Now
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </a>
+              <a
+                href="https://dexscreener.com/solana/TBA"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-display font-bold text-cat-deep bg-white border-[2.5px] border-cat-deep px-7 py-3.5 rounded-2xl text-base sm:text-lg btn-outline inline-flex items-center gap-2"
+              >
+                Chart
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13l4-4 4 4 6-6M3 21h18"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contract Address -->
+    <section class="relative py-10 sm:py-14 px-4 sm:px-6">
+      <div class="max-w-3xl mx-auto">
+        <div class="ca-box rounded-3xl p-5 sm:p-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <div class="flex-1 min-w-0">
+            <p class="font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-cat-deep/60 mb-1.5">Contract Address</p>
+            <p id="ca-text" class="font-mono text-sm sm:text-base md:text-lg text-cat-ink font-bold truncate select-all">TBA</p>
+          </div>
+          <button
+            id="copy-ca"
+            type="button"
+            class="shrink-0 font-display font-bold text-white bg-cat-deep hover:bg-cat-electric px-6 py-3 rounded-2xl transition-colors inline-flex items-center justify-center gap-2"
+          >
+            <svg id="copy-icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <span id="copy-label">Copy CA</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="relative py-16 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+          <div class="relative flex justify-center">
+            <div class="absolute -inset-6 bg-gradient-to-br from-cat-sky/30 via-cat-mist/40 to-cat-blush/20 rounded-[3rem] blur-2xl"></div>
+            <img
+              src="logo.png"
+              alt="OnlyCats character"
+              class="relative w-56 sm:w-72 md:w-80 object-contain animate-float drop-shadow-2xl"
+            />
+            <span class="spark absolute top-4 right-8 text-3xl select-none" aria-hidden="true">✦</span>
+            <span class="spark absolute bottom-10 left-6 text-2xl select-none" style="animation-delay: 0.7s" aria-hidden="true">✦</span>
+          </div>
+          <div>
+            <p class="font-display text-sm font-bold uppercase tracking-widest text-cat-electric mb-3">The Lore</p>
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-cat-deep mb-5 leading-tight">
+              Whiskers, memes &amp; Solana magic
+            </h2>
+            <p class="text-lg text-cat-ink/75 font-semibold leading-relaxed mb-4">
+              Cute cats. Viral memes. Infinite purrs. OnlyCats turns every whisker into legendary crypto-powered fun.
+            </p>
+            <p class="text-base text-cat-fur font-bold leading-relaxed">
+              Born on Solana for speed, chaos, and community. $OnlyCats is the softest soft-launch of pure feline energy — no dogs allowed, only cats.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <span class="font-display font-bold text-sm bg-cat-mist text-cat-deep px-4 py-2 rounded-full border-2 border-cat-fur/40">Name: OnlyCats</span>
+              <span class="font-display font-bold text-sm bg-cat-sky/20 text-cat-electric px-4 py-2 rounded-full border-2 border-cat-sky/50">Symbol: OnlyCats</span>
+              <span class="font-display font-bold text-sm bg-cat-blush/15 text-cat-blush px-4 py-2 rounded-full border-2 border-cat-blush/40">Chain: Solana</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Buy -->
+    <section id="howtobuy" class="relative py-16 sm:py-24 px-4 sm:px-6">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cat-mist/40 to-transparent pointer-events-none"></div>
+      <div class="relative max-w-6xl mx-auto">
+        <div class="text-center mb-12 sm:mb-16">
+          <p class="font-display text-sm font-bold uppercase tracking-widest text-cat-electric mb-3">Get Your Paws On It</p>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-cat-deep mb-4">How to Buy</h2>
+          <p class="text-cat-ink/70 font-semibold text-lg max-w-xl mx-auto">Four easy steps to scoop $OnlyCats on Solana.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-5">
+          <!-- Step 1 -->
+          <article class="step-card rounded-3xl p-6 relative">
+            <div class="w-12 h-12 rounded-2xl bg-cat-electric text-white font-display font-bold text-xl flex items-center justify-center mb-5 shadow-lg shadow-cat-electric/30">1</div>
+            <h3 class="font-display text-xl font-bold text-cat-deep mb-2">Get a Wallet</h3>
+            <p class="text-cat-ink/70 font-semibold text-sm leading-relaxed">
+              Download Phantom or Solflare. Create a Solana wallet and keep your seed phrase secret — like a cat and its favorite box.
+            </p>
+          </article>
+
+          <!-- Step 2 -->
+          <article class="step-card rounded-3xl p-6 relative">
+            <div class="w-12 h-12 rounded-2xl bg-cat-sky text-white font-display font-bold text-xl flex items-center justify-center mb-5 shadow-lg shadow-cat-sky/30">2</div>
+            <h3 class="font-display text-xl font-bold text-cat-deep mb-2">Add SOL</h3>
+            <p class="text-cat-ink/70 font-semibold text-sm leading-relaxed">
+              Buy SOL on an exchange, then send it to your wallet. You’ll need SOL for swaps and network fees.
+            </p>
+          </article>
+
+          <!-- Step 3 -->
+          <article class="step-card rounded-3xl p-6 relative">
+            <div class="w-12 h-12 rounded-2xl bg-cat-deep text-white font-display font-bold text-xl flex items-center justify-center mb-5 shadow-lg shadow-cat-deep/30">3</div>
+            <h3 class="font-display text-xl font-bold text-cat-deep mb-2">Open the Swap</h3>
+            <p class="text-cat-ink/70 font-semibold text-sm leading-relaxed">
+              Hit Buy Now to open Pump.fun with SOL → $OnlyCats ready. Connect your wallet and confirm you’re on Solana.
+            </p>
+          </article>
+
+          <!-- Step 4 -->
+          <article class="step-card rounded-3xl p-6 relative">
+            <div class="w-12 h-12 rounded-2xl bg-cat-blush text-white font-display font-bold text-xl flex items-center justify-center mb-5 shadow-lg shadow-cat-blush/30">4</div>
+            <h3 class="font-display text-xl font-bold text-cat-deep mb-2">Swap &amp; HODL</h3>
+            <p class="text-cat-ink/70 font-semibold text-sm leading-relaxed">
+              Enter how much SOL you want to swap, confirm the trade, and welcome $OnlyCats into your wallet. Infinite purrs await.
+            </p>
+          </article>
+        </div>
+
+        <div class="mt-12 text-center">
+          <a
+            href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-display font-bold text-white bg-cat-electric px-8 py-4 rounded-2xl text-lg btn-glow inline-flex items-center gap-2"
+          >
+            Buy $OnlyCats Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chart / Dexscreener -->
+    <section id="chart" class="relative py-16 sm:py-24 px-4 sm:px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-10 sm:mb-12">
+          <p class="font-display text-sm font-bold uppercase tracking-widest text-cat-electric mb-3">Live Markets</p>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-cat-deep mb-4">Chart</h2>
+          <p class="text-cat-ink/70 font-semibold text-lg">Track $OnlyCats price action on Dexscreener.</p>
+          <a
+            href="https://dexscreener.com/solana/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex mt-5 font-display font-bold text-cat-deep bg-white border-[2.5px] border-cat-deep px-6 py-3 rounded-2xl btn-outline"
+          >
+            Open Full Chart
+          </a>
+        </div>
+
+        <div class="chart-frame rounded-3xl overflow-hidden aspect-[16/10] sm:aspect-[16/9] min-h-[320px]">
+          <iframe
+            id="dex-embed"
+            src="https://dexscreener.com/solana/TBA?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=light&theme=light&chartStyle=0&chartType=usd&interval=15"
+            title="OnlyCats Dexscreener chart"
+            class="w-full h-full border-0"
+            allow="clipboard-write"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community CTA -->
+    <section class="relative py-16 sm:py-20 px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="relative rounded-[2.5rem] bg-gradient-to-br from-cat-sky/25 via-white to-cat-blush/15 border-[2.5px] border-cat-mist p-10 sm:p-14 overflow-hidden">
+          <div class="paw animate-paw-bounce" style="top: 12%; left: 8%; opacity: 0.25;"></div>
+          <div class="paw animate-float" style="bottom: 15%; right: 10%; opacity: 0.25; width: 22px; height: 22px;"></div>
+          <img src="logo.png" alt="" class="w-16 h-16 mx-auto mb-5 object-contain animate-wiggle" />
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-cat-deep mb-3">Join the litter</h2>
+          <p class="text-cat-ink/70 font-semibold text-lg mb-8 max-w-md mx-auto">
+            Memes drop first in Telegram &amp; X. Come purr with the pack.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="https://t.me/OnlyCatsSol" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 font-display font-bold bg-white border-2 border-cat-sky text-cat-deep px-6 py-3 rounded-2xl hover:bg-cat-sky/10 transition-colors shadow-md">
+              <img src="tg.png" alt="" class="w-8 h-8 rounded-full object-cover" />
+              Telegram
+            </a>
+            <a href="https://x.com/OnlyCatsSol" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 font-display font-bold bg-white border-2 border-cat-ink/20 text-cat-ink px-6 py-3 rounded-2xl hover:bg-cat-mist/50 transition-colors shadow-md">
+              <img src="x.png" alt="" class="w-8 h-8 rounded-full object-cover" />
+              Follow on X
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t-2 border-cat-mist py-10 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="OnlyCats" class="w-10 h-10 object-contain" />
+        <div>
+          <p class="font-display font-bold text-cat-electric text-lg leading-none">OnlyCats</p>
+          <p class="text-xs font-bold text-cat-fur mt-0.5">$OnlyCats · Solana</p>
+        </div>
+      </div>
+      <p class="text-sm font-semibold text-cat-fur/80 text-center sm:text-right max-w-sm">
+        Cute cats. Viral memes. Infinite purrs. Not financial advice — DYOR.
+      </p>
+      <div class="flex items-center gap-3">
+        <a href="https://t.me/OnlyCatsSol" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-cat-mist hover:scale-110 transition-transform" aria-label="Telegram">
+          <img src="tg.png" alt="Telegram" class="w-full h-full object-cover" />
+        </a>
+        <a href="https://x.com/OnlyCatsSol" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-cat-mist hover:scale-110 transition-transform bg-black" aria-label="X">
+          <img src="x.png" alt="X" class="w-full h-full object-cover" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copy toast -->
+  <div id="toast" class="toast fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] font-display font-bold text-white bg-cat-deep px-6 py-3 rounded-2xl shadow-xl pointer-events-none">
+    CA copied to clipboard!
+  </div>
+
+  <script>
+    const CA = 'TBA';
+    const copyBtn = document.getElementById('copy-ca');
+    const copyLabel = document.getElementById('copy-label');
+    const toast = document.getElementById('toast');
+
+    async function copyCA() {
+      try {
+        await navigator.clipboard.writeText(CA);
+      } catch {
+        const ta = document.createElement('textarea');
+        ta.value = CA;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      copyLabel.textContent = 'Copied!';
+      toast.classList.add('show');
+      setTimeout(() => {
+        copyLabel.textContent = 'Copy CA';
+        toast.classList.remove('show');
+      }, 2000);
+    }
+
+    copyBtn.addEventListener('click', copyCA);
+  </script>
+</body>
+</html>
